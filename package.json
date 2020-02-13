@@ -1,0 +1,24 @@
+{
+  "name": "mdo-blog-api",
+  "version": "0.0.1",
+  "description": "MDO Simple Blog API",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "nodemon": "1.18.4"
+  },
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/metodiobetsanov/mdo-blog-api.git"
+  },
+  "author": "M D O",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/metodiobetsanov/mdo-blog-api/issues"
+  },
+  "homepage": "https://github.com/metodiobetsanov/mdo-blog-api#readme"
+}
