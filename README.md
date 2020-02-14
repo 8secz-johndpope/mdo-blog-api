@@ -1,1 +1,1 @@
-# mdo=blog-api
+# mdo-blog-api
