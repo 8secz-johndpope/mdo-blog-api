@@ -1,4 +1,4 @@
-const CreateSuccessData = (code, result) => {
+const CreateSuccessResult = (code, result) => {
   return {
     status: code,
     success: true,
@@ -6,12 +6,12 @@ const CreateSuccessData = (code, result) => {
   };
 };
 
-const CreateErrorData = (code, errors) => {
+const CreateErrorResult = (code, errors) => {
   return {
     status: code,
     success: false,
-    errors,
+    errors: errors,
   };
 };
 
-module.exports = { CreateSuccessData, CreateErrorData };
+module.exports = { CreateSuccessResult, CreateErrorResult };
