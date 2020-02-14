@@ -6,8 +6,10 @@ const router = express.Router();
  * @swagger
  * /test:
  *  get:
- *    summary: Test GET Request
- *    tags: [ Simple Test Routes ]
+ *    description: Returns data based on ID
+ *    summary: Find data by ID
+ *    operationId: getDatasById
+ *    tags: [ Test Routes ]
  */
 router.get('/', async (req, res) => {
   return res.status(200);
@@ -15,10 +17,10 @@ router.get('/', async (req, res) => {
 
 /**
  * @swagger
- * /auth/login:
+ * /test:
  *  post:
  *    summary: Test POST Request
- *    tags: [ Simple Test Routes ]
+ *    tags: [ Test Routes ]
  */
 router.post('/', async (req, res) => {
   return res.status(200);
@@ -26,10 +28,10 @@ router.post('/', async (req, res) => {
 
 /**
  * @swagger
- * /auth/login:
+ * /test:
  *  patch:
  *    summary: Test PATCH Request
- *    tags: [ Simple Test Routes ]
+ *    tags: [ Test Routes ]
  */
 router.patch('/', async (req, res) => {
   return res.status(200);
@@ -37,10 +39,10 @@ router.patch('/', async (req, res) => {
 
 /**
  * @swagger
- * /auth/login:
+ * /test:
  *  delete:
  *    summary: Test DELETE Request
- *    tags: [ Simple Test Routes ]
+ *    tags: [ Test Routes ]
  */
 router.delete('/', async (req, res) => {
   return res.status(200);

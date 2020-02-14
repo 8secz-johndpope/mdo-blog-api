@@ -1,24 +1,40 @@
 const swaggerJsdoc = require('swagger-jsdoc');
 
 const options = {
-  apis: ['./src/routes/*.js', './src/models/**/*.js', './docs/*.json'],
-  components: {},
+  apis: ['./src/routes/*.js', './src/models/**/*.js'],
   swaggerDefinition: {
     openapi: '3.0.0',
-    host: '127.0.0.1:5000',
     basePath: '/api',
     info: {
-      title: 'MDO Blog API',
+      title: 'MDO Simple Blog API',
       description: 'Basic ExpressJS API',
-      version: '1.0.0',
+      termsOfService: 'Use it as you want',
       contact: {
+        name: 'MDO',
         email: 'meto.obetsanov@gmail.com',
       },
       license: {
         name: 'MIT',
+        url: 'https://en.wikipedia.org/wiki/MIT_License',
       },
+      version: '1.0.0',
     },
-    tags: [{ name: 'Simple Test Routes' }]
+    servers: [
+      {
+        url: 'http://127.0.0.1:5000/api',
+        description: 'Development server',
+      },
+      {
+        url: 'https://mdo-blog-api.herokuapp.com/api',
+        description: 'Production server',
+      },
+    ],
+    tags: [
+      {
+        name: 'Test Routes',
+        description: 'Simple Routes to test the API Connection',
+      },
+    ],
   },
 };
 

@@ -2,12 +2,16 @@ const express = require('express');
 const passport = require('passport');
 const morgan = require('morgan');
 const swaggerUi = require('swagger-ui-express');
+const ConnectDB = require('../config/db.config');
 const logger = require('../config/logger.config');
 const specs = require('../config/swagger.config');
-const { changeSecret } = require('../config/tasks.config');
+const { ChangeSecret } = require('../config/tasks.config');
 
 // Init Express
 const app = express();
+
+// Init Database Connection
+ConnectDB();
 
 // Init Passport
 app.use(passport.initialize());
@@ -21,6 +25,6 @@ app.use(morgan('combined', { stream: logger.stream }));
 app.use('/', swaggerUi.serve, swaggerUi.setup(specs, { explorer: true }));
 
 // Init Tasks
-changeSecret.start();
+ChangeSecret.start();
 
 module.exports = app;
