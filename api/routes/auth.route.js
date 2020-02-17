@@ -28,10 +28,9 @@ router.post('/signin', ValidateInput(SighInShcema), async (req, res) => {
  *    tags: [ SignIn/SignUp ]
  */
 router.post('/signup', ValidateInput(SighInShcema), async (req, res) => {
-  const { ip } = req;
   const { email, password } = req.body;
 
-  SignUp(email, password, ip)
+  SignUp(email, password)
     .then((result) => res.status(result.status).json(result))
     .catch((err) => res.status(err.status).json(err));
 });
