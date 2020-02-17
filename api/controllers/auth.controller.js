@@ -8,6 +8,15 @@ const {
   CreateErrorResult,
 } = require('../helpers/api.response');
 
+/**
+ * Sign In the User, and generates the Response content
+ *
+ * @async
+ * @function SignIn
+ * @param {string} email The user's email
+ * @param {string} password The user's password
+ * @returns {Promise<object>} Promise object represents the Response content
+ */
 const SignIn = async (email, password) => {
   const user = await User.findOne({ email });
 
@@ -18,6 +27,7 @@ const SignIn = async (email, password) => {
 
     user
       .comparePassword(password)
+
       .then((isMatch) => {
         if (!isMatch) {
           return reject(CreateErrorResult(400, 'Invalid Credentials!'));
@@ -40,7 +50,16 @@ const SignIn = async (email, password) => {
   });
 };
 
-const SignUp = async (email, password, ip) => {
+/**
+ * Sign Up the User, and generates the Response content
+ *
+ * @async
+ * @function SignUp
+ * @param {string} email The user's email
+ * @param {string} password The user's password
+ * @returns {Promise<object>} Promise object represents the Response content
+ */
+const SignUp = async (email, password) => {
   let user = await User.findOne({ email });
 
   return new Promise(function(resolve, reject) {
@@ -64,7 +83,7 @@ const SignUp = async (email, password, ip) => {
       .save()
       .then((doc) => {
         doc
-          .createJWT(ip)
+          .createJWT()
           .then((token) => {
             resolve(CreateSuccessResult(201, token));
           })

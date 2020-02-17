@@ -4,6 +4,7 @@ const fs = require('fs');
 const uuidv4 = require('uuid/v4');
 const logger = require('./logger.config');
 
+// eslint-disable-next-line func-names
 module.exports.ChangeSecret = cron.schedule('* 0 0 * * 0', function() {
   try {
     logger.info('Task N1 Started!');

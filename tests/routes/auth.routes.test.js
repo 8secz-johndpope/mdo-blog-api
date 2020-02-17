@@ -1,7 +1,7 @@
 /* eslint-disable global-require */
 /* eslint-disable no-undef */
 const request = require('supertest');
-const server = require('../../src/app');
+const server = require('../../api/app');
 const mockDB = require('../mockDB');
 
 describe('Testing Auth EndPoints', () => {

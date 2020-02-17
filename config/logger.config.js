@@ -40,7 +40,7 @@ const logger = createLogger({
 });
 
 logger.stream = {
-  write: (message, encoding) => {
+  write: (message) => {
     logger.info(message);
   },
 };

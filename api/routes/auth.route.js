@@ -13,10 +13,9 @@ const router = express.Router();
  *    tags: [ SignIn/SignUp ]
  */
 router.post('/signin', ValidateInput(SighInShcema), async (req, res) => {
-  const { ip } = req;
   const { email, password } = req.body;
 
-  SignIn(email, password, ip)
+  SignIn(email, password)
     .then((result) => res.status(result.status).json(result))
     .catch((err) => res.status(err.status).json(err));
 });

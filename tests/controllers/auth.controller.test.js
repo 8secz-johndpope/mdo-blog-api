@@ -1,7 +1,7 @@
 /* eslint-disable global-require */
 /* eslint-disable no-undef */
 const mockDB = require('../mockDB');
-const { SignIn, SignUp } = require('../../src/controllers/auth.controller');
+const { SignIn, SignUp } = require('../../api/controllers/auth.controller');
 
 describe('Testing Auth Controller', () => {
   beforeAll(async () => {

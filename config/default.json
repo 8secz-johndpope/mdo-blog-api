@@ -2,5 +2,9 @@
   "jwtSecret": "266242be-c418-4043-9f49-cb902f41dead",
   "development": {
     "connectionString": "mongodb+srv://admin:3blg4caVqOIDsSIv@practisedb-vtlnj.mongodb.net/test?retryWrites=true&w=majority"
+  },
+  "production":{
+    "connectionString": "mongodb+srv://admin:6dUmxV67SAkEUFCZ@mdo-blog-db-foo6y.mongodb.net/test?retryWrites=true&w=majority"
   }
 }
+
