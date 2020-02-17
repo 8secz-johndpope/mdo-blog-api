@@ -67,12 +67,12 @@ describe('Testing Auth EndPoints', () => {
         });
     });
 
-    it('Send: no data | Should: get error | Return: errors | Response: 400', async (done) => {
+    it('Send: no data | Should: get error | Return: errors | Response: 401', async (done) => {
       await request(server)
         .post('/api/auth/login')
         .send({})
         .then((res) => {
-          expect(res.status).toBe(400);
+          expect(res.status).toBe(401);
           done();
         });
     });

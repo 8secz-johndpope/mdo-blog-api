@@ -31,7 +31,7 @@ const options = {
     ],
     tags: [
       {
-        name: 'Test Routes',
+        name: 'SignIn/SignUp',
         description: 'Simple Routes to test the API Connection',
       },
     ],
