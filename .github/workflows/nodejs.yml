@@ -1,4 +1,4 @@
-name: GitHubBuild
+name: GitHub
 
 on: [push]
 
