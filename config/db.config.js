@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const config = require('config');
 const logger = require('./logger.config');
 
-function ConnectDB() {
+async function ConnectDB() {
   let conStr = null;
 
   if (process.env.NODE_ENV === 'production') {
@@ -14,13 +14,13 @@ function ConnectDB() {
   }
 
   if (conStr) {
-    mongoose
+    await mongoose
       .connect(conStr, {
         useCreateIndex: true,
         useNewUrlParser: true,
         useUnifiedTopology: true,
       })
-      .then((mngs) => {
+      .then(() => {
         logger.info('DB Status: Connection Established');
       })
       .catch((err) => {

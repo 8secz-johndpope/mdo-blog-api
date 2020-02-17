@@ -1,4 +1,3 @@
-const Joi = require('@hapi/joi');
 const { CreateErrorResult } = require('../helpers/api.response');
 
 module.exports = (schema) => (req, res, next) => {

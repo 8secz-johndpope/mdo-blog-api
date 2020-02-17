@@ -2,7 +2,6 @@ const express = require('express');
 const passport = require('passport');
 const morgan = require('morgan');
 const swaggerUi = require('swagger-ui-express');
-const ConnectDB = require('../config/db.config');
 const logger = require('../config/logger.config');
 const specs = require('../config/swagger.config');
 const { ChangeSecret } = require('../config/tasks.config');
@@ -10,9 +9,6 @@ const authRouter = require('./routes/auth.route');
 
 // Init Express
 const app = express();
-
-// Init Database Connection
-ConnectDB();
 
 // Init Passport
 app.use(passport.initialize());
