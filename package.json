@@ -7,7 +7,7 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "lint": "eslint --format=pretty ./src",
-    "test": "jest --colors --silent --watch --detectOpenHandles",
+    "test": "jest --colors --silent --detectOpenHandles",
     "coverage": "npm run test && jest --coverage && cat ./coverage/lcov.info | coveralls"
   },
   "dependencies": {
