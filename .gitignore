@@ -105,6 +105,3 @@ dist
 .tern-port
 
 .idea/
-
-# Config json
-**/config/default.json
