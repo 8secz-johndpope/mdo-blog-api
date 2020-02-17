@@ -1,3 +1,4 @@
+/* eslint-disable func-names */
 const mongoose = require('mongoose');
 const config = require('config');
 const jwt = require('jsonwebtoken');
@@ -29,6 +30,7 @@ const UserSchema = new mongoose.Schema(
   },
 );
 
+// eslint-disable-next-line consistent-return
 UserSchema.pre('save', async function(next) {
   const user = this;
 
@@ -41,12 +43,11 @@ UserSchema.pre('save', async function(next) {
   next();
 });
 
-UserSchema.methods.createJWT = async function(userIp) {
+UserSchema.methods.createJWT = async function() {
   const user = this;
   const payload = {
     user: {
       id: user.id,
-      ip: userIp,
     },
   };
 

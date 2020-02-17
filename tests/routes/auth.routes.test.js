@@ -16,7 +16,7 @@ describe('Testing Auth EndPoints', () => {
 
   describe('Post @ /api/auth/signup', () => {
     it('Send: valid data | Should: register User | Return: jwToken | Response: 201', async (done) => {
-      await request(server)
+      request(server)
         .post('/api/auth/signup')
         .send({
           email: 'user@mail.com',
@@ -29,18 +29,17 @@ describe('Testing Auth EndPoints', () => {
     });
 
     it('Send: no data | Should: get error | Return: errors | Response: 401', async (done) => {
-      await request(server)
+      request(server)
         .post('/api/auth/signup')
         .send({})
         .then((res) => {
-            console.log(res)
-          expect(res.status).toBe(401);
+          expect(res.status).toBe(400);
           done();
         });
     });
 
     it('Send: duplicate data | Should: get error | Return: errors | Response: 409', async (done) => {
-      await request(server)
+      request(server)
         .post('/api/auth/signup')
         .send({
           email: 'user@mail.com',
@@ -55,8 +54,8 @@ describe('Testing Auth EndPoints', () => {
 
   describe('Post @ /api/auth/signin', () => {
     it('Send: valid data | Should: login User | Return: jwToken | Response: 200', async (done) => {
-      await request(server)
-        .post('/api/auth/login')
+      request(server)
+        .post('/api/auth/signin')
         .send({
           email: 'user@mail.com',
           password: 'password',
@@ -68,37 +67,37 @@ describe('Testing Auth EndPoints', () => {
     });
 
     it('Send: no data | Should: get error | Return: errors | Response: 401', async (done) => {
-      await request(server)
-        .post('/api/auth/login')
+      request(server)
+        .post('/api/auth/signin')
         .send({})
         .then((res) => {
-          expect(res.status).toBe(401);
+          expect(res.status).toBe(400);
           done();
         });
     });
 
     it('Send: wrong password | Should: get error | Return: error | Response: 401', async (done) => {
-      await request(server)
-        .post('/api/auth/login')
+      request(server)
+        .post('/api/auth/signin')
         .send({
           email: 'user@mail.com',
           password: 'password123',
         })
         .then((res) => {
-          expect(res.status).toBe(401);
+          expect(res.status).toBe(400);
           done();
         });
     });
 
     it('Send: wrong email | Should: get error | Return: error | Response: 401', async (done) => {
-      await request(server)
-        .post('/api/auth/login')
+      request(server)
+        .post('/api/auth/signin')
         .send({
           email: 'user1@mail.com',
           password: 'password',
         })
         .then((res) => {
-          expect(res.status).toBe(401);
+          expect(res.status).toBe(400);
           done();
         });
     });

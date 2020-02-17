@@ -4,7 +4,6 @@ const morgan = require('morgan');
 const swaggerUi = require('swagger-ui-express');
 const logger = require('../config/logger.config');
 const specs = require('../config/swagger.config');
-const { ChangeSecret } = require('../config/tasks.config');
 const authRouter = require('./routes/auth.route');
 
 // Init Express
@@ -26,7 +25,12 @@ app.use(
 );
 app.use('/api/auth', authRouter);
 
-// Init Tasks
-ChangeSecret.start();
+app.use((err, req, res, next) => {
+  if (err) {
+    res.status(500).json('Internal Server Error!');
+  }
+
+  next();
+});
 
 module.exports = app;

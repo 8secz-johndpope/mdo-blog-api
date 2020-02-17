@@ -4,6 +4,6 @@ exports.authorizeRole = (...roles) => {
       next();
     }
 
-    return res.status(401);
+    return res.status(401).json('Unauthorized!');
   };
 };

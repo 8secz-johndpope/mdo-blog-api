@@ -1,3 +1,5 @@
+/* eslint-disable consistent-return */
+/* eslint-disable func-names */
 const gravatar = require('gravatar');
 const logger = require('../../config/logger.config');
 const User = require('../models/user/user.model');
@@ -6,25 +8,25 @@ const {
   CreateErrorResult,
 } = require('../helpers/api.response');
 
-const SignIn = async (email, password, ip) => {
+const SignIn = async (email, password) => {
   const user = await User.findOne({ email });
 
   return new Promise(function(resolve, reject) {
     if (!user) {
-      return reject(CreateErrorResult(401, 'Invalid Credentials!'));
+      return reject(CreateErrorResult(400, 'Invalid Credentials!'));
     }
 
     user
       .comparePassword(password)
       .then((isMatch) => {
         if (!isMatch) {
-          return reject(CreateErrorResult(401, 'Invalid Credentials!'));
+          return reject(CreateErrorResult(400, 'Invalid Credentials!'));
         }
 
         user
-          .createJWT(ip)
+          .createJWT()
           .then((token) => {
-            resolve(CreateSuccessResult(202, token));
+            resolve(CreateSuccessResult(200, token));
           })
           .catch((err) => {
             logger.error(err);
