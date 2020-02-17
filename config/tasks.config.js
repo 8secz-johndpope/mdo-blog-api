@@ -4,7 +4,7 @@ const fs = require('fs');
 const uuidv4 = require('uuid/v4');
 const logger = require('./logger.config');
 
-module.exports.ChangeSecret = cron.schedule('* * * * * 0', function() {
+module.exports.ChangeSecret = cron.schedule('* 0 0 * * 0', function() {
   try {
     logger.info('Task N1 Started!');
     const filePath = path.join(__dirname, '/default.json');

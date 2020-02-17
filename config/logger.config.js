@@ -22,6 +22,10 @@ const logger = createLogger({
       maxFiles: '14d',
     }),
     new transports.Console({
+      level: 'error',
+      handleExceptions: true,
+    }),
+    new transports.Console({
       handleExceptions: true,
     }),
   ],

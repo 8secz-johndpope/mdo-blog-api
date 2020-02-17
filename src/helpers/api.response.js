@@ -2,7 +2,7 @@ const CreateSuccessResult = (code, result) => {
   return {
     status: code,
     success: true,
-    data: result,
+    result,
   };
 };
 
@@ -10,7 +10,7 @@ const CreateErrorResult = (code, errors) => {
   return {
     status: code,
     success: false,
-    errors: errors,
+    errors,
   };
 };
 

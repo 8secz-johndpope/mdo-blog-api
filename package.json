@@ -4,15 +4,18 @@
   "description": "MDO Simple Blog API",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
+    "server": "nodemon server.js",
     "lint": "eslint --format=pretty ./src",
-    "test": "jest --verbose --silent",
+    "test": "jest --colors --silent --watch --detectOpenHandles",
     "coverage": "npm run test && jest --coverage && cat ./coverage/lcov.info | coveralls"
   },
   "dependencies": {
+    "@hapi/joi": "^17.1.0",
     "bcryptjs": "^2.4.3",
     "config": "^3.2.5",
     "express": "^4.17.1",
+    "gravatar": "^1.8.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.8.13",
     "morgan": "^1.9.1",
@@ -60,5 +63,11 @@
   "bugs": {
     "url": "https://github.com/metodiobetsanov/mdo-blog-api/issues"
   },
-  "homepage": "https://github.com/metodiobetsanov/mdo-blog-api#readme"
+  "homepage": "https://github.com/metodiobetsanov/mdo-blog-api#readme",
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  }
 }

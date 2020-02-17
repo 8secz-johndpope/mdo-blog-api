@@ -16,6 +16,7 @@ function ConnectDB() {
   if (conStr) {
     mongoose
       .connect(conStr, {
+        useCreateIndex: true,
         useNewUrlParser: true,
         useUnifiedTopology: true,
       })

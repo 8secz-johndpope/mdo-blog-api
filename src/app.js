@@ -6,6 +6,7 @@ const ConnectDB = require('../config/db.config');
 const logger = require('../config/logger.config');
 const specs = require('../config/swagger.config');
 const { ChangeSecret } = require('../config/tasks.config');
+const authRouter = require('./routes/auth.route');
 
 // Init Express
 const app = express();
@@ -22,7 +23,12 @@ app.use(express.json());
 app.use(morgan('combined', { stream: logger.stream }));
 
 // Define Routes
-app.use('/', swaggerUi.serve, swaggerUi.setup(specs, { explorer: true }));
+app.use(
+  '/api/docs',
+  swaggerUi.serve,
+  swaggerUi.setup(specs, { explorer: true }),
+);
+app.use('/api/auth', authRouter);
 
 // Init Tasks
 ChangeSecret.start();
