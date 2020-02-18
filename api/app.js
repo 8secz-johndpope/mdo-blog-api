@@ -3,7 +3,6 @@ const passport = require('passport');
 const morgan = require('morgan');
 const Airbrake = require('@airbrake/node');
 const airbrakeExpress = require('@airbrake/node/dist/instrumentation/express');
-const airbrakePG = require('@airbrake/node/dist/instrumentation/pg');
 const swaggerUi = require('swagger-ui-express');
 const logger = require('../config/logger.config');
 const specs = require('../config/swagger.config');
