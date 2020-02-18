@@ -9,10 +9,6 @@ const transp = [
     maxSize: '20m',
     maxFiles: '14d',
   }),
-  new transports.Console({
-    level: 'error',
-    handleExceptions: true,
-  }),
 ];
 
 if (process.env.NODE_ENV !== 'test') {
